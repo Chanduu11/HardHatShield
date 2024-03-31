@@ -1,0 +1,84 @@
+{% extends 'layout/base.html' %}
+{% block css %}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        background: linear-gradient(45deg, #190f2c, #200b30);
+     
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    /* Main CSS */
+    .grid-wrapper>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .grid-wrapper>div>a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .grid-wrapper>div>a>img {
+        width: 300px;
+        height: 100%;
+        aspect-ratio: 3/2;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    .grid-wrapper {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-auto-rows: 200px;
+        grid-auto-flow: dense;
+    }
+
+    .grid-wrapper .wide {
+        grid-column: span 2;
+    }
+
+    .grid-wrapper .tall {
+        grid-row: span 2;
+    }
+
+    .grid-wrapper .big {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 my-4">
+            <div class="grid-wrapper">
+                {% for file in files %}
+                        <div>
+                            <a href="/file/{{file.id}}/view">
+                                
+                                <img src="\{{file.path}}" />
+                                
+                            </a>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
