@@ -1,2 +1,4 @@
 flask
 sqlalchemy
+opencv-contrib-python
+ ultralytics
