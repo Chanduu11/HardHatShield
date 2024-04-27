@@ -88,8 +88,21 @@ def file_list():
 def file_view(id):
     if not session.get('isauth'):
         return redirect('/login')
-    return render_template('view_file.html')
+    db = open_db()
+    file = db.query(File).get(id)
+    return render_template('view_file.html', file=file)
 
+@app.route('/detect/<int:id>', methods=['GET', 'POST'])
+def detect_in_image(id):
+    db = open_db()
+    file = db.query(File).get(id)
+    # make detection
+    detections = None
+    return render_template(f'/view_file.html', file=file, detections=detections)
+
+@app.route('/delete/<int:id>', methods=['GET', 'POST'])
+def detect_in_image(id):
+    return redirect('/file/list')
 @app.route('/test')
 def test():
     return render_template('test.html')

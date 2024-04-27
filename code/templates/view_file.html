@@ -1,5 +1,32 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
-yaha pe kuch to hoga
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="d-grid gap-2">
+                <div class="display-5">Your Upload</div>
+                <img src="/{{file.path}}" alt="" class="img-fluid rounded-2">
+                <a class="btn btn-danger" href="/delete/{{file.id}}">Delete</a>
+                <a href="/detect/{{file.id}}" class="btn btn-primary">Detect In Image</a>
+            </div>
+        </div>
+        {% if detection %}
+        <div class="col-md-7 offset-1">
+            <div class="d-grid gap-3">
+                <div class="fs-2">Detections</div>
+                <img src="/{{file.path}}" alt="" class="img-fluid w-100 rounded-1">
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-7 offset-1">
+            <div class="d-grid gap-3">
+                <div class="fs-2">No Detections</div>
+                <img src="/{{file.path}}" alt="" class="img-fluid w-100 rounded-1">
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
 {% endblock%}
