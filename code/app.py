@@ -93,7 +93,7 @@ def file_view(id):
     return render_template('view_file.html', file=file)
 
 @app.route('/detect/<int:id>', methods=['GET', 'POST'])
-def detect_in_image(id):
+def detect_image(id):
     db = open_db()
     file = db.query(File).get(id)
     # make detection
