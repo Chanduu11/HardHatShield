@@ -45,6 +45,10 @@ Results:
 
 The success of the safety helmet detection project will be measured based on the model's accuracy, speed, and reliability in detecting safety helmets in various environments. The ultimate goal is to develop a robust and efficient system that can enhance safety in workplaces where safety helmets are mandatory.
 
+Contributor
+
+Chandresh Mishra  
+
 Conclusion:
 
 The safety helmet detection project using the YOLOv8 algorithm offers a promising solution for automating the detection of safety compliance in various industries. By leveraging deep learning techniques, we can develop accurate and efficient systems that contribute to improved workplace safety and compliance with safety regulations.
